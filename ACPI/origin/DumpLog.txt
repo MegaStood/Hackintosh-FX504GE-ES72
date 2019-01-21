@@ -1,0 +1,140 @@
+133:196  2:546  Found UEFI Acpi 2.0 RSDP at 7A3B8000
+133:196  0:000  Saving ACPI tables from RSDP 7A3B8000 to EFI\CLOVER\ACPI\origin ...
+133:196  0:000   7A3B8000: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36 -> RSDP.aml
+136:424  3:227    (Xsdt: 7A3B80B8, Rsdt: 7A3B8028)
+136:424  0:000    7A3B80B8: 'XSDT', 'Notebook', Rev: 1, Len: 244 -> XSDT.aml
+139:994  3:570    7A3B8028: 'RSDT', 'Notebook', Rev: 1, Len: 140 -> RSDT.aml
+143:519  3:524    Tables in Xsdt: 26
+143:519  0:000    0. 7A3F9870: 'FACP', 'Notebook', Rev: 6, Len: 276 -> FACP.aml
+147:072  3:552        (Dsdt: 7A3B8240, Facs: 7A52F080, XDsdt: 7A3B8240, XFacs: 0)
+147:072  0:000        7A3B8240: 'DSDT', 'Notebook', Rev: 2, Len: 267824 -> DSDT.aml
+157:081  10:009        7A52F080: 'FACS', Ver: 2, Len: 64 -> FACS.aml
+160:616  3:534    1. 7A3F9988: 'APIC', 'Notebook', Rev: 4, Len: 244 -> APIC.aml
+164:495  3:878    2. 7A3F9A80: 'FPDT', 'Notebook', Rev: 1, Len: 68 -> FPDT.aml
+168:342  3:847    3. 7A3F9AC8: 'FIDT', 'Notebook', Rev: 1, Len: 156 -> FIDT.aml
+172:186  3:843    4. 7A3F9B68: 'MCFG', 'Notebook', Rev: 1, Len: 60 -> MCFG.aml
+176:036  3:850    5. 7A3F9BA8: 'SSDT', 'SataTabl', Rev: 1, Len: 820 -> SSDT-0-SataTabl.aml
+179:875  3:838    6. 7A3F9EE0: 'SSDT', 'DptfTabl', Rev: 2, Len: 28951 -> SSDT-1-DptfTabl.aml
+185:588  5:713    7. 7A400FF8: 'SSDT', 'CpuSsdt', Rev: 2, Len: 6101 -> SSDT-2-CpuSsdt.aml (Found hidden SSDT 7 pcs)
+188:819  3:230        * 7A36C298: 'SSDT', 'Cpu0Ist', Rev: 2, Len: 1470  53 53 44 54 BE 05 00 00 02 D2 50 6D 52 65 66 00 Internal length = 1470 -> SSDT-x2_0-Cpu0Ist.aml
+192:056  3:236        * 7A365018: 'SSDT', 'ApIst', Rev: 2, Len: 3825  53 53 44 54 F1 0E 00 00 02 ED 50 6D 52 65 66 00 Internal length = 3825 -> SSDT-x2_1-ApIst.aml
+195:233  3:177        * 7A364018: 'SSDT', 'Cpu0Cst', Rev: 2, Len: 1024  53 53 44 54 00 04 00 00 02 D9 50 6D 52 65 66 00 Internal length = 1024 -> SSDT-x2_2-Cpu0Cst.aml
+198:164  2:930        * 7A36C918: 'SSDT', 'ApCst', Rev: 2, Len: 778  53 53 44 54 0A 03 00 00 02 E9 50 6D 52 65 66 00 Internal length = 778 -> SSDT-x2_3-ApCst.aml
+202:466  4:302        * 77756E98: 'SSDT', 'Cpu0Hwp', Rev: 2, Len: 266  53 53 44 54 0A 01 00 00 02 9F 50 6D 52 65 66 00 Internal length = 266 -> SSDT-x2_4-Cpu0Hwp.aml
+205:509  3:043        * 77756018: 'SSDT', 'ApHwp', Rev: 2, Len: 791  53 53 44 54 17 03 00 00 02 E3 50 6D 52 65 66 00 Internal length = 791 -> SSDT-x2_5-ApHwp.aml
+208:739  3:229        * 7774F018: 'SSDT', 'HwpLvt', Rev: 2, Len: 1828  53 53 44 54 24 07 00 00 02 CA 50 6D 52 65 66 00 Internal length = 1828 -> SSDT-x2_6-HwpLvt.aml
+211:974  3:235  
+211:974  0:000    8. 7A4027D0: 'MSDM', 'Notebook', Rev: 3, Len: 85 -> MSDM.aml
+215:108  3:134    9. 7A402828: 'SSDT', 'SaSsdt', Rev: 2, Len: 12759 -> SSDT-3-SaSsdt.aml
+218:032  2:924    10. 7A405A00: 'SSDT', 'PegSsdt', Rev: 2, Len: 8908 -> SSDT-4-PegSsdt.aml
+222:382  4:349    11. 7A407CD0: 'HPET', 'Notebook', Rev: 1, Len: 56 -> HPET.aml
+226:130  3:748    12. 7A407D08: 'SSDT', 'Ther_Rvp', Rev: 2, Len: 3998 -> SSDT-5-Ther_Rvp.aml
+230:653  4:523    13. 7A408CA8: 'SSDT', 'xh_cfhd4', Rev: 2, Len: 10577 -> SSDT-6-xh_cfhd4.aml
+235:176  4:522    14. 7A40B600: 'UEFI', 'Notebook', Rev: 1, Len: 72 -> UEFI.aml
+239:462  4:286    15. 7A40B648: 'LPIT', 'Notebook', Rev: 1, Len: 92 -> LPIT.aml
+243:648  4:185    16. 7A40B6A8: 'WSMT', 'Notebook', Rev: 1, Len: 40 -> WSMT.aml
+247:838  4:190    17. 7A40B6D0: 'SSDT', 'PtidDevc', Rev: 2, Len: 10206 -> SSDT-7-PtidDevc.aml
+252:108  4:269    18. 7A40DEB0: 'SSDT', 'TbtTypeC', Rev: 2, Len: 4094 -> SSDT-8-TbtTypeC.aml
+258:170  6:061    19. 7A40EEB0: 'DBGP', 'Notebook', Rev: 1, Len: 52 -> DBGP.aml
+262:721  4:551    20. 7A40EEE8: 'DBG2', 'Notebook', Rev: 0, Len: 84 -> DBG2.aml
+265:315  2:594    21. 7A40EF40: 'SSDT', 'SgPeg', Rev: 2, Len: 174 -> SSDT-9-SgPeg.aml
+267:875  2:559    22. 7A40EFF0: 'BGRT', 'Notebook', Rev: 1, Len: 56 -> BGRT.aml
+270:439  2:563    23. 7A40F028: 'TPM2', 'Notebook', Rev: 4, Len: 52 -> TPM2.aml
+273:077  2:637    24. 7A40F060: 'BGRT', 'Notebook', Rev: 1, Len: 56 -> BGRT.aml
+278:128  5:051    25. 7A40F098: 'SSDT', 'OptTabl', Rev: 1, Len: 8086 -> SSDT-10-OptTabl.aml
+281:009  2:881    Tables in Rsdt: 26
+281:009  0:000    0. 7A3B81B8: 'FACP', 'Notebook', Rev: 2, Len: 132 -> RSDT-FACP.aml
+283:573  2:563        (Dsdt: 7A3B8240, Facs: 7A52F040)
+283:573  0:000        7A3B8240: 'DSDT', 'Notebook', Rev: 2, Len: 267824
+283:578  0:005        7A52F040: 'FACS', Ver: 0, Len: 64 -> RSDT-FACS.aml
+286:131  2:553    1. 7A3F9988: 'APIC', 'Notebook', Rev: 4, Len: 244
+286:131  0:000    2. 7A3F9A80: 'FPDT', 'Notebook', Rev: 1, Len: 68
+286:131  0:000    3. 7A3F9AC8: 'FIDT', 'Notebook', Rev: 1, Len: 156
+286:131  0:000    4. 7A3F9B68: 'MCFG', 'Notebook', Rev: 1, Len: 60
+286:131  0:000    5. 7A3F9BA8: 'SSDT', 'SataTabl', Rev: 1, Len: 820
+286:131  0:000    6. 7A3F9EE0: 'SSDT', 'DptfTabl', Rev: 2, Len: 28951
+286:131  0:000    7. 7A400FF8: 'SSDT', 'CpuSsdt', Rev: 2, Len: 6101
+286:131  0:000    8. 7A4027D0: 'MSDM', 'Notebook', Rev: 3, Len: 85
+286:131  0:000    9. 7A402828: 'SSDT', 'SaSsdt', Rev: 2, Len: 12759
+286:131  0:000    10. 7A405A00: 'SSDT', 'PegSsdt', Rev: 2, Len: 8908
+286:131  0:000    11. 7A407CD0: 'HPET', 'Notebook', Rev: 1, Len: 56
+286:131  0:000    12. 7A407D08: 'SSDT', 'Ther_Rvp', Rev: 2, Len: 3998
+286:131  0:000    13. 7A408CA8: 'SSDT', 'xh_cfhd4', Rev: 2, Len: 10577
+286:131  0:000    14. 7A40B600: 'UEFI', 'Notebook', Rev: 1, Len: 72
+286:131  0:000    15. 7A40B648: 'LPIT', 'Notebook', Rev: 1, Len: 92
+286:131  0:000    16. 7A40B6A8: 'WSMT', 'Notebook', Rev: 1, Len: 40
+286:131  0:000    17. 7A40B6D0: 'SSDT', 'PtidDevc', Rev: 2, Len: 10206
+286:131  0:000    18. 7A40DEB0: 'SSDT', 'TbtTypeC', Rev: 2, Len: 4094
+286:131  0:000    19. 7A40EEB0: 'DBGP', 'Notebook', Rev: 1, Len: 52
+286:131  0:000    20. 7A40EEE8: 'DBG2', 'Notebook', Rev: 0, Len: 84
+286:131  0:000    21. 7A40EF40: 'SSDT', 'SgPeg', Rev: 2, Len: 174
+286:131  0:000    22. 7A40EFF0: 'BGRT', 'Notebook', Rev: 1, Len: 56
+286:131  0:000    23. 7A40F028: 'TPM2', 'Notebook', Rev: 4, Len: 52
+286:131  0:000    24. 7A40F060: 'BGRT', 'Notebook', Rev: 1, Len: 56
+286:131  0:000    25. 7A40F098: 'SSDT', 'OptTabl', Rev: 1, Len: 8086
+286:131  0:000  Found UEFI Acpi 1.0 RSDP at 7A3B8000
+286:131  0:000  Printing ACPI tables from RSDP 7A3B8000 ...
+286:131  0:000   7A3B8000: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36
+286:131  0:000    (Xsdt: 7A3B80B8, Rsdt: 7A3B8028)
+286:131  0:000    7A3B80B8: 'XSDT', 'Notebook', Rev: 1, Len: 244
+286:131  0:000    7A3B8028: 'RSDT', 'Notebook', Rev: 1, Len: 140
+286:131  0:000    Tables in Xsdt: 26
+286:131  0:000    0. 7A3F9870: 'FACP', 'Notebook', Rev: 6, Len: 276
+286:131  0:000        (Dsdt: 7A3B8240, Facs: 7A52F080, XDsdt: 7A3B8240, XFacs: 0)
+286:131  0:000        7A3B8240: 'DSDT', 'Notebook', Rev: 2, Len: 267824
+286:137  0:005        7A52F080: 'FACS', Ver: 2, Len: 64
+286:137  0:000    1. 7A3F9988: 'APIC', 'Notebook', Rev: 4, Len: 244
+286:137  0:000    2. 7A3F9A80: 'FPDT', 'Notebook', Rev: 1, Len: 68
+286:137  0:000    3. 7A3F9AC8: 'FIDT', 'Notebook', Rev: 1, Len: 156
+286:137  0:000    4. 7A3F9B68: 'MCFG', 'Notebook', Rev: 1, Len: 60
+286:137  0:000    5. 7A3F9BA8: 'SSDT', 'SataTabl', Rev: 1, Len: 820
+286:137  0:000    6. 7A3F9EE0: 'SSDT', 'DptfTabl', Rev: 2, Len: 28951
+286:137  0:000    7. 7A400FF8: 'SSDT', 'CpuSsdt', Rev: 2, Len: 6101
+286:137  0:000    8. 7A4027D0: 'MSDM', 'Notebook', Rev: 3, Len: 85
+286:137  0:000    9. 7A402828: 'SSDT', 'SaSsdt', Rev: 2, Len: 12759
+286:137  0:000    10. 7A405A00: 'SSDT', 'PegSsdt', Rev: 2, Len: 8908
+286:137  0:000    11. 7A407CD0: 'HPET', 'Notebook', Rev: 1, Len: 56
+286:137  0:000    12. 7A407D08: 'SSDT', 'Ther_Rvp', Rev: 2, Len: 3998
+286:137  0:000    13. 7A408CA8: 'SSDT', 'xh_cfhd4', Rev: 2, Len: 10577
+286:137  0:000    14. 7A40B600: 'UEFI', 'Notebook', Rev: 1, Len: 72
+286:137  0:000    15. 7A40B648: 'LPIT', 'Notebook', Rev: 1, Len: 92
+286:137  0:000    16. 7A40B6A8: 'WSMT', 'Notebook', Rev: 1, Len: 40
+286:137  0:000    17. 7A40B6D0: 'SSDT', 'PtidDevc', Rev: 2, Len: 10206
+286:137  0:000    18. 7A40DEB0: 'SSDT', 'TbtTypeC', Rev: 2, Len: 4094
+286:137  0:000    19. 7A40EEB0: 'DBGP', 'Notebook', Rev: 1, Len: 52
+286:137  0:000    20. 7A40EEE8: 'DBG2', 'Notebook', Rev: 0, Len: 84
+286:137  0:000    21. 7A40EF40: 'SSDT', 'SgPeg', Rev: 2, Len: 174
+286:137  0:000    22. 7A40EFF0: 'BGRT', 'Notebook', Rev: 1, Len: 56
+286:137  0:000    23. 7A40F028: 'TPM2', 'Notebook', Rev: 4, Len: 52
+286:137  0:000    24. 7A40F060: 'BGRT', 'Notebook', Rev: 1, Len: 56
+286:137  0:000    25. 7A40F098: 'SSDT', 'OptTabl', Rev: 1, Len: 8086
+286:137  0:000    Tables in Rsdt: 26
+286:137  0:000    0. 7A3B81B8: 'FACP', 'Notebook', Rev: 2, Len: 132
+286:137  0:000        (Dsdt: 7A3B8240, Facs: 7A52F040)
+286:137  0:000        7A3B8240: 'DSDT', 'Notebook', Rev: 2, Len: 267824
+286:142  0:005        7A52F040: 'FACS', Ver: 0, Len: 64
+286:142  0:000    1. 7A3F9988: 'APIC', 'Notebook', Rev: 4, Len: 244
+286:142  0:000    2. 7A3F9A80: 'FPDT', 'Notebook', Rev: 1, Len: 68
+286:142  0:000    3. 7A3F9AC8: 'FIDT', 'Notebook', Rev: 1, Len: 156
+286:142  0:000    4. 7A3F9B68: 'MCFG', 'Notebook', Rev: 1, Len: 60
+286:142  0:000    5. 7A3F9BA8: 'SSDT', 'SataTabl', Rev: 1, Len: 820
+286:142  0:000    6. 7A3F9EE0: 'SSDT', 'DptfTabl', Rev: 2, Len: 28951
+286:142  0:000    7. 7A400FF8: 'SSDT', 'CpuSsdt', Rev: 2, Len: 6101
+286:142  0:000    8. 7A4027D0: 'MSDM', 'Notebook', Rev: 3, Len: 85
+286:142  0:000    9. 7A402828: 'SSDT', 'SaSsdt', Rev: 2, Len: 12759
+286:142  0:000    10. 7A405A00: 'SSDT', 'PegSsdt', Rev: 2, Len: 8908
+286:142  0:000    11. 7A407CD0: 'HPET', 'Notebook', Rev: 1, Len: 56
+286:142  0:000    12. 7A407D08: 'SSDT', 'Ther_Rvp', Rev: 2, Len: 3998
+286:142  0:000    13. 7A408CA8: 'SSDT', 'xh_cfhd4', Rev: 2, Len: 10577
+286:142  0:000    14. 7A40B600: 'UEFI', 'Notebook', Rev: 1, Len: 72
+286:142  0:000    15. 7A40B648: 'LPIT', 'Notebook', Rev: 1, Len: 92
+286:142  0:000    16. 7A40B6A8: 'WSMT', 'Notebook', Rev: 1, Len: 40
+286:142  0:000    17. 7A40B6D0: 'SSDT', 'PtidDevc', Rev: 2, Len: 10206
+286:142  0:000    18. 7A40DEB0: 'SSDT', 'TbtTypeC', Rev: 2, Len: 4094
+286:142  0:000    19. 7A40EEB0: 'DBGP', 'Notebook', Rev: 1, Len: 52
+286:142  0:000    20. 7A40EEE8: 'DBG2', 'Notebook', Rev: 0, Len: 84
+286:142  0:000    21. 7A40EF40: 'SSDT', 'SgPeg', Rev: 2, Len: 174
+286:142  0:000    22. 7A40EFF0: 'BGRT', 'Notebook', Rev: 1, Len: 56
+286:142  0:000    23. 7A40F028: 'TPM2', 'Notebook', Rev: 4, Len: 52
+286:142  0:000    24. 7A40F060: 'BGRT', 'Notebook', Rev: 1, Len: 56
+286:142  0:000    25. 7A40F098: 'SSDT', 'OptTabl', Rev: 1, Len: 8086
