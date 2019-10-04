@@ -1,5 +1,5 @@
 # Hackintosh-FX504GE-ES72
-Mojave 10.14.3
+Mojave 10.14.6.   Bios version 318
 
 # Hardware Configuration
 ASUS FX504GE-ES72:
@@ -19,9 +19,9 @@ ASUS FX504GE-ES72:
 - Sleep and Wake (Hibernatemode 3)
 - PS/2 Keyboard
 - Work almost perfect
+- HDMI port
 
 # Not Working
-- hdmi port
 - I2C ELAN1200 Precision TouchPad 
 
 # Installation
@@ -89,8 +89,24 @@ ASUS FX504GE-ES72:
 
 # Audio
       Realtek ALC255: Use AppleALC.kext, Clover Audio injection =3
-      /System/Library/Extensions/AppleGFXHDA.kext must be removed (ID matched but not actually compatible)
+     
+# HDMI
+      USE the latest Hacktool to creat a patch,the below section should be take care:      
+      
+      framebuffer-con1-busid                        01000000(the only work-out id) 
+      framebuffer-con1-enable                       01000000
+      framebuffer-con1-flags                        87010000
+      framebuffer-con1-has-lspcon                   01000000
+      framebuffer-con1-index                        01000000
+      framebuffer-con1-pipe                         12000000
+      framebuffer-con1-preferred-lspcon-mode        01000000
+      framebuffer-con1-type                         00080000(used as a HDMI identifier),
+      framebuffer-patch-enable                      01000000
 
+      As the MacbookPro 15,2 do not have HDMI port actually, the check of the board-id should be ignored by 
+      using the WhateverGreen boot-arg agdpmod=vit9696.please check the details in my updated config.plist.
+      Kindly note that the kext of WhateverGreen, Lilu and AppleALC should be updated to the latest version. 
+      
 # Credit:
 - Special thanks to RehabMan for his splendid work and comprehensive guidelines to Hackintosh laptops.
   His method make this model works almost perfect.
