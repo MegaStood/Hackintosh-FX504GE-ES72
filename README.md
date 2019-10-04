@@ -26,12 +26,12 @@ ASUS FX504GE-ES72:
 
 # Installation
 
-- 1.Use the Clover EFI Mojave Installer to install Mac OS Majave(10.14.3) 
+- 1.Use the Clover EFI Mojave Installer to install Mac OS Majave(10.14.6) 
 - 2.Boot into the system and replace the "EFI" Folder on you System Boot Disk EFI partition 
 - 3.Install all the kext contained in the Kext "other" folder into your /Library/Extensions, rebuild kextcache and reboot
 -     ACPI Patched: DSDT, SSDT-DDGPU, SSDT-PNLF/PNLFCFL, SSDT-UIAC, SSDT-XHC, SSDT-XOSI
-      UEFI Drivers are used: ApfsDriverLoader-64, AptioMemoryFix-64, DataHubDxe-64, EmuVariableUefi-64, 
-			FSinject-64, HFSPlus, NvmExpressDxe-64, PartitionDxe-64, SMCHelper-64.
+      UEFI Drivers are used: ApfsDriverLoader, OsxAptioFix3Drv(clover 5108 stock,work fine), DataHubDxe, EmuVariableUefi, 
+			FSinject, HFSPlus or VBoxHFS, NvmExpressDxe, PartitionDxe, SMCHelper.
       Kexts are used: ACPIBatteryManager, AirportBrcmFixup, AppleALC, BrcmFirmwareRepo, BrcmPatchRAM2, 
 			BT4LEContiunityFixup, FakeSMC, Lilu, NoTouchID, RealtekRTL8111, USBInjectAll, 
 			VoodooPS2Controller, WhateverGreen, XHCI-unsupported.
