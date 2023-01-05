@@ -114,8 +114,7 @@ ASUS FX504GE-ES72:
       2.use the boot-args:-v -wegnoegpu agdpmod=vit9696 -igfxblr igfxonln=1 igfxrpsc=1 igfxfw=2
       3.patch the EDID of both your build-in monitor and external monitor.
          Firstly, use Hackintool to patch all your connected monitors(for build-in 16:9 screen,choose macbook air). The corresponding EDID.bin files will be created on your desktop.
-         Secondly,use AW EDID Editor to modify your preferred timing parameters(in Detailed Descriptor section).Use Video Timings Calculator to find the timings for different standard.You should creat three EDID.bin files for the timings in relation to CVT-RB,CVT-RBv2, and CEA-861,respectively.
-  (you could also use the build-in CVT Format wizard in the section Detailed Descriptor of AW EDID Editor,which could creat v1 and v2 CVT timings;or Use predefined format to creat CEA-861 timings)
+         Secondly,use AW EDID Editor to modify your preferred timing parameters(in Detailed Descriptor section).Use Video Timings Calculator to find the timings for different standard.You should creat three EDID.bin files for the timings in relation to CVT-RB,CVT-RBv2, and CEA-861,respectively.  (you could also use the build-in CVT Format wizard in the section Detailed Descriptor of AW EDID Editor,which could creat v1 and v2 CVT timings;or Use predefined format to creat CEA-861 timings)
         Thirdly, Use BetterDisplay to apply HIDPI for your external monitor. At the mean time, upload the patched EDID.bin files for both your build-in and external monitor. Apply the changes and restart your computer, BetterDisplay will do the remain work for you.
      4.Find the suitable EDID.bin file for your external monitor. For my LG 21:9 monitor, the best timing is CVT-RBv2 for 2560*1080 at 60Hz.
      5.USE xxd -ps edid_bin.bin > edid_hex_modified.txt to creat hex. put the relevent hex in your config.plist under section AAPL00,override-no-connect and AAPL01,override-no-connect
