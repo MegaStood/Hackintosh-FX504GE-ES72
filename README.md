@@ -1,5 +1,5 @@
 # Hackintosh-FX504GE-ES72
-Mojave 10.14.6.   Bios version 318
+Mojave 10.14.6 (Clover) → Monterey/Ventura (OpenCore 0.85+).  BIOS version 318
 
 # Hardware Configuration
 ASUS FX504GE-ES72:
@@ -12,36 +12,102 @@ ASUS FX504GE-ES72:
 - Apple Magic Mouse
 
 # Working
-- Intel Graphics Accelleration(uhd630)
-- Wifi & Bluetooth (dw1560)
-- Audio
-- Brightlight Control
-- Sleep and Wake (Hibernatemode 3)
+- Intel Graphics Acceleration (UHD 630)
+- Wi-Fi & Bluetooth (DW1560)
+- Audio (Realtek ALC255, layout-id 3)
+- Brightness control (Fn keys)
+- Sleep and Wake (HibernateMode 3)
 - PS/2 Keyboard
-- Work almost perfect
-- HDMI port
+- HDMI port (stable with EDID patch + agdpmod=vit9696)
+- Battery management
+- USB ports (custom USBPorts.kext map)
 
-# Not Working
-- I2C ELAN1200 Precision TouchPad 
+# Not Working / In Progress
+- I2C ELAN1200 Precision TouchPad — see **I2C TouchPad Fix** section below
 
-# Installation
+# Installation — OpenCore (recommended, opencore0.85/)
 
-- 1.Use the Clover EFI Mojave Installer to install Mac OS Majave(10.14.6) 
-- 2.Boot into the system and replace the "EFI" Folder on you System Boot Disk EFI partition 
-- 3.Install all the kext contained in the Kext "other" folder into your /Library/Extensions, rebuild kextcache and reboot
+1. Create a macOS installer USB using `createinstallmedia`.
+2. Mount your EFI partition and copy `opencore0.85/EFI/` to it.
+3. Generate unique SMBIOS values (MacBookPro15,1) using [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
+   and fill in `MLB`, `SystemSerialNumber`, `SystemUUID`, and `ROM` in `config.plist > PlatformInfo > Generic`.
+4. Boot the installer, install macOS, then boot from the EFI partition.
+5. For the I2C touchpad, compile and add `SSDT-GPI0.aml` — see **I2C TouchPad Fix** below.
+
+**ACPI tables (OC):** SSDT-GPI0, SSDT-dGPU-Off, SSDT-EC-USBX-LAPTOP, SSDT-PLUG, SSDT-PMC, SSDT-PNLF-CFL, SSDT-XOSI
+
+**Kexts (OC):** Lilu, VirtualSMC (+SMCBatteryManager/LightSensor/Processor/SuperIO), WhateverGreen, AppleALC,
+AirportBrcmFixup, BlueToolFixup, BrcmFirmwareData, BrcmPatchRAM3, BrcmBluetoothInjector (≤Big Sur),
+HibernationFixup, RealtekRTL8111, USBPorts, VoodooPS2Controller (+Keyboard), VoodooI2C (+VoodooInput), VoodooI2CHID
+
+**UEFI Drivers (OC):** HfsPlus.efi, OpenCanopy.efi, OpenRuntime.efi
+
+# OpenCore Config (config085.plist / opencore0.85)
+- SMBIOS: MacBookPro15,1
+- Boot args: `-v keepsyms=1 debug=0x100 -wegnoegpu agdpmod=vit9696 -igfxblr igfxonln=1 igfxrpsc=1 igfxfw=2`
+  (remove `-v` and debug flags once stable)
+- ACPI Quirks: _OSI → XOSI rename (SSDT-XOSI simulation of Windows 10)
+- Kernel Quirks: AppleXcpmCfgLock=true, DisableIoMapper=true, DisableLinkeditJettison=true,
+  PowerTimeoutKernelPanic=true, XhciPortLimit=false (custom USBPorts.kext handles USB map)
+
+# Installation — Clover (legacy, Mojave 10.14.6)
+
+- 1.Use the Clover EFI Mojave Installer to install macOS Mojave (10.14.6)
+- 2.Boot into the system and replace the "EFI" folder on your System Boot Disk EFI partition
+- 3.Install all the kexts in `kexts/other/` into `/Library/Extensions`, rebuild kextcache and reboot
 -     ACPI Patched: DSDT, SSDT-DDGPU, SSDT-PNLF/PNLFCFL, SSDT-UIAC, SSDT-XHC, SSDT-XOSI
-      UEFI Drivers are used: ApfsDriverLoader, OsxAptioFix3Drv(clover 5108 stock,work fine), DataHubDxe, EmuVariableUefi, 
-			FSinject, HFSPlus or VBoxHFS, NvmExpressDxe, PartitionDxe, SMCHelper.
-      Kexts are used: ACPIBatteryManager, AirportBrcmFixup, AppleALC, BrcmFirmwareRepo, BrcmPatchRAM2, 
-			BT4LEContiunityFixup, FakeSMC, Lilu, NoTouchID, RealtekRTL8111, USBInjectAll, 
-			VoodooPS2Controller, WhateverGreen, XHCI-unsupported.
-			
-# Clover Config
-- Acpi: AutoMerge, DSDT Patches(_OSI to XOSI, HECI to IMEI,GFX0 to IGPU, HDAS to HDEF,no need to rename EHC* as Chipsets post Skylake removed USB2.0 native support), SSDT PluginType checked 
-- Boot Args: dart=0 -igfxnohdmi darkwake=0 -v -lilubetaall keepsyms=1 -wegbeta
+      UEFI Drivers: ApfsDriverLoader, OsxAptioFix3Drv (Clover 5108), DataHubDxe, EmuVariableUefi,
+			FSinject, HFSPlus or VBoxHFS, NvmExpressDxe, PartitionDxe, SMCHelper
+      Kexts: ACPIBatteryManager, AirportBrcmFixup, AppleALC, BrcmFirmwareRepo, BrcmPatchRAM2,
+			BT4LEContiunityFixup, FakeSMC, Lilu, NoTouchID, RealtekRTL8111, USBInjectAll,
+			VoodooPS2Controller, WhateverGreen, XHCI-unsupported
+
+# Clover Config (legacy)
+- Acpi: AutoMerge, DSDT Patches (_OSI to XOSI, HECI to IMEI, GFX0 to IGPU, HDAS to HDEF), SSDT PluginType checked
+- Boot Args: `dart=0 -igfxnohdmi darkwake=0 -v -lilubetaall keepsyms=1 -wegbeta`
 - Kernel Patches: Kernel LAPIC, KernelPM and AppleRTC enabled
 - SMBIOS: MacBookPro15,2
-- SystemParameters: InjectKexts Detect, InjectSystemID YES.
+- SystemParameters: InjectKexts Detect, InjectSystemID YES
+
+# I2C TouchPad Fix (ELAN1200 Precision TouchPad)
+
+The ELAN1200 is an I2C HID device that needs the Intel GPIO controller active
+under macOS for interrupt-driven operation. Without it, VoodooI2C cannot
+establish an interrupt and the touchpad stays unresponsive.
+
+**What was already in place:**
+- `VoodooI2C.kext` + `VoodooI2CHID.kext` in OC/Kexts/
+- `SSDT-XOSI.aml` (Windows 10 simulation, required by VoodooI2C)
+- `_OSI → XOSI` ACPI rename patch
+
+**Fixes applied in this commit:**
+1. `VoodooInput.kext` (VoodooI2C plugin) — was **disabled**, now **enabled**.
+   VoodooInput provides the trackpad gesture translation layer; without it
+   multi-touch and any gesture data never reach macOS.
+2. `VoodooPS2Trackpad.kext` — was **enabled**, now **disabled**.
+   Leaving the PS/2 trackpad driver active alongside VoodooI2CHID causes a
+   driver conflict; whichever binds first blocks the other.
+3. `SSDT-GPI0.aml` added to `ACPI > Add` in config.plist.
+   Enables `_SB.PCI0.GPI0` under Darwin so the GPIO controller is visible
+   to VoodooI2C for interrupt-based I2C communication.
+
+**One manual step required — compile SSDT-GPI0.dsl:**
+
+The DSL source is at `opencore0.85/EFI/OC/ACPI/SSDT-GPI0.dsl`.
+You must compile it to produce the binary `SSDT-GPI0.aml`:
+
+```bash
+# Option A — command line (install iasl via Homebrew: brew install acpica)
+iasl -G opencore0.85/EFI/OC/ACPI/SSDT-GPI0.dsl
+# This creates SSDT-GPI0.aml in the same folder.
+
+# Option B — MaciASL (GUI)
+# Open SSDT-GPI0.dsl in MaciASL and File > Save As... ACPI Machine Language Binary (.aml)
+# Save to opencore0.85/EFI/OC/ACPI/SSDT-GPI0.aml
+```
+
+After compiling, `SSDT-GPI0.aml` must be present in `EFI/OC/ACPI/` on your
+EFI partition. The `config.plist` entry is already in place.
 
 # DSDT Patch (only two static patches needed )
 ##    Sleep and wake
