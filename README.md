@@ -1,5 +1,23 @@
 # Hackintosh-FX504GE-ES72
-Mojave 10.14.6 (Clover) → Monterey/Ventura (OpenCore 0.85+).  BIOS version 318
+Mojave 10.14.6 (Clover) → Monterey/Ventura (OpenCore 1.0.6).  BIOS version 318
+
+## Component Versions (OpenCore 1.0.6 build)
+
+| Component | Version | Notes |
+|-----------|---------|-------|
+| OpenCore | 1.0.6 | Replaces 0.8.5 |
+| Lilu | 1.7.1 | |
+| VirtualSMC | 1.3.7 | +SMCBatteryManager/LightSensor/Processor/SuperIO |
+| WhateverGreen | 1.7.0 | |
+| AppleALC | 1.9.6 | layout-id 3 |
+| AirportBrcmFixup | 2.2.0 | |
+| BrcmPatchRAM | 2.7.1 | BlueToolFixup+BrcmBluetoothInjector+BrcmFirmwareData+BrcmPatchRAM3 |
+| HibernationFixup | 1.5.4 | |
+| RealtekRTL8111 | 3.0.0 | |
+| VoodooPS2Controller | 2.3.7 | Keyboard only (trackpad disabled — using I2C) |
+| VoodooI2C | 2.9.1 | +VoodooGPIO+VoodooI2CServices+VoodooInput |
+| VoodooI2CHID | 2.9.1 | ELAN1200 satellite |
+| USBPorts | 1.0 | Custom USB map for FX504GE — do not update |
 
 # Hardware Configuration
 ASUS FX504GE-ES72:
@@ -25,7 +43,7 @@ ASUS FX504GE-ES72:
 # Not Working / In Progress
 - I2C ELAN1200 Precision TouchPad — see **I2C TouchPad Fix** section below
 
-# Installation — OpenCore (recommended, opencore0.85/)
+# Installation — OpenCore 1.0.6 (recommended, opencore0.85/)
 
 1. Create a macOS installer USB using `createinstallmedia`.
 2. Mount your EFI partition and copy `opencore0.85/EFI/` to it.
@@ -42,7 +60,7 @@ HibernationFixup, RealtekRTL8111, USBPorts, VoodooPS2Controller (+Keyboard), Voo
 
 **UEFI Drivers (OC):** HfsPlus.efi, OpenCanopy.efi, OpenRuntime.efi
 
-# OpenCore Config (config085.plist / opencore0.85)
+# OpenCore 1.0.6 Config (config085.plist / opencore0.85)
 - SMBIOS: MacBookPro15,1
 - Boot args: `-v keepsyms=1 debug=0x100 -wegnoegpu agdpmod=vit9696 -igfxblr igfxonln=1 igfxrpsc=1 igfxfw=2`
   (remove `-v` and debug flags once stable)
